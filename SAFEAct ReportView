@@ -1,0 +1,14 @@
+Option Compare Database
+Option Explicit
+
+Private Sub txtRecordID_Click()
+
+    DoCmd.OpenForm "frmRecordView"
+    Forms!frmRecordView.Auto_Header0.Caption = "Edit Record"
+    If Forms!frmRecordView.FilterOn Then
+        Forms!frmRecordView.FilterOn = False
+    End If
+    Forms!frmRecordView.Filter = "[ID] = " & Me.txtRecordID
+    Forms!frmRecordView.FilterOn = True
+
+End Sub

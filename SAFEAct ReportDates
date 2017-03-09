@@ -1,0 +1,63 @@
+Option Compare Database
+Option Explicit
+
+Private Sub btnCancel_Click()
+
+    DoCmd.Close acForm, "frmReportDates"
+
+End Sub
+
+Private Sub btnViewReport_Click()
+
+    If strQueryName = "qryDateLastModified" Then
+        DoCmd.OpenForm "frmReportView", acFormDS
+        Forms!frmReportView.RecordSource = strQueryName
+        Forms!frmReportView.Refresh
+        Forms!frmReportView.Comment.ColumnHidden = True
+        Forms!frmReportView.InitialVerificationRequest.ColumnHidden = True
+        Forms!frmReportView.MLORetentionEmailSentDate.ColumnHidden = True
+        Forms!frmReportView.ComplianceTechName.ColumnHidden = True
+        Forms!frmReportView.BusCardCriticalNote.ColumnHidden = True
+        Forms!frmReportView.FollowUpDate.ColumnHidden = True
+        Forms!frmReportView.Department.ColumnHidden = True
+        DoCmd.Close acForm, "frmReportDates"
+'        DoCmd.OpenQuery strQueryName
+'        DoCmd.Close acForm, "frmReportDates"
+        Exit Sub
+    End If
+    
+    If strQueryName = "qryNotCompleted" Then
+        DoCmd.OpenForm "frmReportView", acFormDS
+        Forms!frmReportView.RecordSource = strQueryName
+    '    Forms!frmReportView.Refresh
+        Forms!frmReportView.MLONumber.ColumnHidden = True
+        Forms!frmReportView.CurrentBranch.ColumnHidden = True
+        Forms!frmReportView.ToBranch.ColumnHidden = True
+        Forms!frmReportView.TPEGroup.ColumnHidden = True
+        Forms!frmReportView.VerificationDeadlineDate.ColumnHidden = True
+        Forms!frmReportView.Comment.ColumnHidden = True
+        Forms!frmReportView.InitialVerificationRequest.ColumnHidden = True
+        Forms!frmReportView.MLORetentionEmailSentDate.ColumnHidden = True
+        Forms!frmReportView.ComplianceTechName.ColumnHidden = True
+        Forms!frmReportView.BusCardCriticalNote.ColumnHidden = True
+'        Forms!frmReportView.FollowUpDate.ColumnHidden = True
+        Forms!frmReportView.Department.ColumnHidden = True
+        Forms!frmReportView.DateLastModified.ColumnHidden = True
+        DoCmd.Close acForm, "frmReportDates"
+        Exit Sub
+    End If
+    
+    DoCmd.OpenForm "frmReportView", acFormDS
+    Forms!frmReportView.RecordSource = strQueryName
+'    Forms!frmReportView.Refresh
+    Forms!frmReportView.Comment.ColumnHidden = True
+    Forms!frmReportView.InitialVerificationRequest.ColumnHidden = True
+    Forms!frmReportView.MLORetentionEmailSentDate.ColumnHidden = True
+'    Forms!frmReportView.ComplianceTechName.ColumnHidden = True
+    Forms!frmReportView.BusCardCriticalNote.ColumnHidden = True
+    Forms!frmReportView.FollowUpDate.ColumnHidden = True
+    Forms!frmReportView.Department.ColumnHidden = True
+    Forms!frmReportView.DateLastModified.ColumnHidden = True
+    DoCmd.Close acForm, "frmReportDates"
+    
+End Sub

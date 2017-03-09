@@ -1,0 +1,90 @@
+Option Compare Database
+
+Private Sub btnBusinessCards_Click()
+
+    'Dim objExcel As Excel.Application
+    'Dim objWorkbook As Excel.Workbook
+    
+    'Set objExcel = New Excel.Application
+    
+    'Set objWorkbook = objExcel.Workbooks.Open("R:\Loan Administration\Lending Integrity\Loan Compliance\Routine\SAFE Act\Business Card Orders" & _
+                                                "\2016 SAFE Act Business Card Review Spreadsheet.xlsx")
+    'objExcel.Visible = True
+    
+    'Set objWorkbook = Nothing
+    'Set objExcel = Nothing
+    
+    Application.FollowHyperlink "R:\Loan Administration\Lending Integrity\Loan Compliance\Routine\SAFE Act\Business Card Orders\" & _
+                                    "2017 SAFE Act Business Card Review Spreadsheet.xlsx"
+    
+End Sub
+
+
+Private Sub btnMonthlyReview_Click()
+
+    Application.FollowHyperlink "R:\Loan Administration\Lending Integrity\Loan Compliance\Routine\SAFE Act\Monthly MLO Email Signature Review\" & _
+                                    "Monthly MLO Email Signature Review Spreadsheet Tool.xlsm"
+
+End Sub
+
+Private Sub btnTemplatesLinks_Click()
+On Error GoTo Stop_Err
+
+    DoCmd.OpenForm "frmRecordView"
+    DoCmd.GoToRecord acForm, "frmRecordView", acNewRec
+    DoCmd.Close acForm, "frm_MainMenu"
+    
+    DoCmd.GoToControl "pgTemplateLinks"
+    
+
+Stop_Exit:
+    Exit Sub
+
+Stop_Err:
+    MsgBox Err.Number & ":  " & Err.Description
+    Resume Stop_Exit
+    Resume
+End Sub
+
+Private Sub btnTPEMenu_Click()
+On Error GoTo Stop_Err
+
+    DoCmd.OpenForm "frmTPEMenu"
+    DoCmd.Close acForm, "frm_MainMenu"
+
+Stop_Exit:
+    Exit Sub
+
+Stop_Err:
+    MsgBox Err.Number & ":  " & Err.Description
+    Resume Stop_Exit
+    Resume
+End Sub
+
+
+Private Sub btnReports_Click()
+On Error GoTo Stop_Err
+
+    DoCmd.OpenForm "frmRecordView"
+    DoCmd.GoToRecord acForm, "frmRecordView", acNewRec
+    DoCmd.Close acForm, "frm_MainMenu"
+    
+    DoCmd.GoToControl "pgReports"
+    
+
+Stop_Exit:
+    Exit Sub
+
+Stop_Err:
+    MsgBox Err.Number & ":  " & Err.Description
+    Resume Stop_Exit
+    Resume
+End Sub
+
+Private Sub btnWeeklyUpdate_Click()
+
+    
+    Application.FollowHyperlink "R:\Loan Administration\Lending Integrity\Loan Compliance\Routine\SAFE Act\MLO Roster Update Tool.xlsm"
+    
+    
+End Sub
